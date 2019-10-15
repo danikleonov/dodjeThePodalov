@@ -131,9 +131,17 @@ function gameStart(obj){
 	document.onkeydown = function(event) {
 		switch (event.keyCode) {
 			case 39:
+				if(xPosChar + characterStats.sizeX > 1250){
+					xPosChar += 1300 - (xPosChar + characterStats.sizeX);
+					break;
+				}
 				xPosChar += characterStats.speed;
 				break;
 			case 37:
+				if(xPosChar - characterStats.sizeX < 0){
+					xPosChar -= xPosChar;
+					break; 
+				}
 				xPosChar -= characterStats.speed;
 				break;
 			default:
