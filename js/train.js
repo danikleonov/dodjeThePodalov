@@ -3,6 +3,14 @@ var danik = document.getElementById('danik');
 var edikk = document.getElementById('edikk');
 var pasha = document.getElementById('pasha');
 
+var endBoard = document.getElementById('endBoard');
+var outScore = document.getElementById('outScore');
+
+var playAgainButton = document.getElementById('playAgain');
+playAgainButton.addEventListener('click',() => {
+	location.reload();
+})
+
 jenua.addEventListener('click',() => {
 
 	var jenua = new Object();
@@ -79,11 +87,20 @@ function gameStart(obj){
 	var body = document.getElementsByTagName("body")[0];
 	body.appendChild(canvas);
 
+
 	var ctx = canvas.getContext("2d");
 
 	var char = new Image();
 	var	enemy = new Image();
 	var bg = new Image();
+
+
+	var music = new Audio();
+	var deathSound = new Audio();
+
+	music.src = "audio/shootingStars.mp3";
+	deathSound.src = "audio/damage.mp3"
+	music.play();
 
 	var enemyObj = new Object();
 
@@ -95,7 +112,7 @@ function gameStart(obj){
 
 	char.src = characterStats.img;
 	enemy.src = getRandomEnemyImg(enemyObj);
-	bg.src = "img/bg1.jpg";
+	bg.src = "img/bg.png";
 
 	// Радномные значения в диапазоне [min, max]
 
@@ -173,23 +190,33 @@ function gameStart(obj){
 
 			if(arrayOfEnemies[i].y == spawnPoint){
 				arrayOfEnemies.push({
-					x: getRandomInt(50, 1250),
+					x: getRandomInt(0, 1250),
 					y: -100
 				});
 			}
 
 			// Проверка на столкновение
-
+				
 			for (var x = 0; x < characterStats.sizeX; x++){
 				for(var y = 0; y < characterStats.sizeY; y++){
 					if (xPosChar + x == arrayOfEnemies[i].x + y && yPosChar - 50 == arrayOfEnemies[i].y) {
+						music.pause();
+						deathSound.play();
+						body.removeChild(canvas);
+						endBoard.classList.toggle('show');
+						outScore.value = score;
+						
 
-						alert('Вы проиграли. Ваш счет: ' +score);
-						location.reload();
 
+
+						/*alert('Вас поймали и отчислили! Вы доучились до курса: '  +score);
+						location.reload();*/
+						
 					}
 				}
 			}
+			
+			
 
 			if(arrayOfEnemies[i].y == 510){
 				score++;
@@ -206,14 +233,6 @@ function gameStart(obj){
 			ctx.fillStyle = "#fff";
 			ctx.font = "20px Cinnamon";
 			ctx.fillText("Счет: " + score, 10, 30);
-
-			ctx.fillStyle = "#fff";
-			ctx.font = "20px Cinnamon";
-			ctx.fillText(arrayOfEnemies.length, 50 ,50);
-
-			ctx.fillStyle = "#fff";
-			ctx.font = "20px Cinnamon";
-			ctx.fillText("Жизни: " + characterStats.life, 1100, 30);
 		
 		}
 
@@ -225,14 +244,16 @@ function gameStart(obj){
 			spawnPoint = 0;
 		}
 
+		if(score == 32){
+			bg.src = "img/bg-2.png";
+		}
+
 		if(score == 40){
 			spawnPoint = -20;
 		}
 
 
-		if(score == 50){
-			bg.src = "img/bg2.jpg";
-		}
+		
 
 		if(score == 100){
 			spawnPoint = -50;

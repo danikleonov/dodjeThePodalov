@@ -17,8 +17,19 @@ h2{
 	text-transform: uppercase;
 	letter-spacing: -2px;
 	color: #ab4b4b;
-
 }
+
+h3{
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-family: 'Liberation Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	color: #fff;
+	font-size: 20px;
+}
+
 h1 span{
 	color: #ab4b4b;
 }
@@ -26,52 +37,46 @@ h1 span{
 p{
 	margin: 0;
 	padding: 0;
-
-}
-.head-title{
-	text-align: center;
-	margin-top: 50px;
 }
 
-.choose{
-	margin-top: 70px;
-}
-
-.char-choose{
-	background-color: #fff;
-	width: 30%;
-	border-radius: 30px;
+.endBoard{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+	border: 1px solid #fff;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
+	width: 50%;
+	text-align: center;
+	display: none;
 }
 
-.char-choose-1{
+.show{
 	display: flex;
-	flex-direction: row;
-	align-items: center;
 }
 
-.char-choose-1 p{
-	color: #333;
-	margin-left: 80px;
-	font-size: 17px;
-}
-
-.char-choose-1 h2{
-	margin-left: 20px;
-	f
-}
-
-.char-img{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 20px;
-	border-radius: 40px;
-}
-.all{
-	opacity: 1;
-	transition : 1s;
-
+.outScore{
+	font-family: 'Liberation Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	color: #fff;
+	font-size: 150px;
 
 }
+
+.playAgain{
+	margin-top: 40px;
+	margin-bottom: 50px;
+	width: 30%;
+	height: 40px;
+	background: #ab4b4b;
+	border-radius: 20px;
+	display: 
+}
+
+.playAgain h3{
+	margin-top: 8px;
+}
+

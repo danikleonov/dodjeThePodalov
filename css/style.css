@@ -1,6 +1,8 @@
 body{
 	background-color: #333;
+
 }
+
 .canvas{
 	border: 1px solid #000;
 	display: block;
@@ -29,6 +31,17 @@ h1 span{
 	color: #ab4b4b;
 }
 
+h3{
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-family: 'Liberation Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	color: #fff;
+	font-size: 20px;
+}
+
 p{
 	margin: 0;
 	padding: 0;
@@ -52,6 +65,7 @@ p{
 .choose{
 	margin-top: 70px;
 	text-align: center;
+
 }
 
 .char-choose{
@@ -98,5 +112,46 @@ p{
 .all{
 	transition: 3s;
 	opacity: 1;
+}
+
+.endBoard{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+	border: 1px solid #fff;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	text-align: center;
+	display: none;
+}
+
+.show{
+	display: flex;
+}
+
+.outScore{
+	font-family: 'Liberation Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	color: #fff;
+	font-size: 150px;
+
+}
+
+.playAgain{
+	margin-top: 40px;
+	margin-bottom: 50px;
+	width: 30%;
+	height: 40px;
+	background: #ab4b4b;
+	border-radius: 20px;
+	display: 
+}
+
+.playAgain h3{
+	margin-top: 8px;
 }
 

@@ -19,6 +19,12 @@ chooseMenu = addEventListener('click', () => {
 	var	podalov = new Image();
 	var bg = new Image();
 
+	var music = new Audio();
+	var deathSound = new Audio();
+
+	music.src = "audio/shootingStars.mp3";
+	music.play();
+
 
 	jenua.src = "img/jenua.png";
 	podalov.src = "img/podalov.png";
